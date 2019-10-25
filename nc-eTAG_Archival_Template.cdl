@@ -1,0 +1,317 @@
+netcdf file\:/C\:/Tag_Archival_Template {
+  dimensions:
+    time = 2046391;
+    str_len = 6;    
+    
+  variables:
+  
+  \\Coordinate and Auxiliary Coordinate Variables
+  
+    char trajectory(str_len);
+      trajectory:cf_role = "trajectory_id";
+  
+    double time(time);
+      string time:long_name = "Time of observation";
+      string time:standard_name = "time";
+      string time:units = "seconds since 1970-01-01T00:00:00";  // UTC
+      string time:axis = "T";
+      string time:coverage_content_type = "coordinate";
+
+    double location_freshness(time);
+      string location_freshness:long_name = "location_freshness";
+      string location_freshness:comment = "time since last latitude and longitude observations";
+      string location_freshness:units = "seconds";
+      double location_freshness:_FillValue = NaN;
+      double location_freshness:valid_max = 86340.0;
+      double location_freshness:valid_min = 0.0;
+      string location_freshness:coverage_content_type = "auxiliaryInformation";
+
+      double longitude(time);
+      string longitude:long_name = "estimated longitude";
+      string longitude:standard_name = "longitude";
+      string longitude:units = "degrees_east";      
+      string longitude:axis = "X";
+      double longitude:_FillValue = NaN;
+      double longitude:valid_max = -118.48636166666667;
+      double longitude:valid_min = -127.43765333333333;
+      string longitude:ancillary_variables = "longitude_uncertainty";
+      string longitude:coverage_content_type = "coordinate";
+      
+      double longitude_uncertainty(time);
+      string longitude_uncertainty:long_name = "derived uncertainty around longitude estimate";
+      string longitude_uncertainty:standard_name = "longitude standard_error";
+      string longitude_uncertainty:units = "degrees ";
+      double longitude_uncertainty:_FillValue = NaN;
+      double longitude_uncertainty:valid_max = 0.05;
+      double longitude_uncertainty:valid_min = 0.01;
+      string longitude_uncertainty:coverage_content_type = "qualityInformation";    
+
+      double latitude(time);
+      string latitude:long_name = "estimated latitude";
+      string latitude:standard_name = "latitude";
+      string latitude:units = "degrees_north";  
+      string latitude:axis = "Y";      
+      double latitude:_FillValue = NaN;
+      double latitude:valid_max = 30.639526666666665;
+      double latitude:valid_min = 9.908965;
+      string latitude:ancillary_variables = "latitude_uncertainty";
+      string latitude:coverage_content_type = "coordinate";
+      
+      double latitude_uncertainty(time);
+      string latitude_uncertainty:long_name = "derived uncertainty around latitude estimate";
+      string latitude_uncertainty:standard_name = "latitude standard_error";
+      string latitude_uncertainty:units = "degrees ";     
+      double latitude_uncertainty:_FillValue = NaN;      
+      double latitude_uncertainty:valid_max = 0.05;
+      double latitude_uncertainty:valid_min = 0.01;
+      string latitude_uncertainty:coverage_content_type = "qualityInformation";
+      
+      double depth(time);
+      string depth:long_name = "measured depth";
+      string depth:standard_name = "depth";
+      string depth:units = "m";  
+      string depth:axis = "Z"; 
+      string depth:positive = "down";
+      double depth:_FillValue = NaN;
+      double depth:valid_max = 563.639526666666665;
+      double depth:valid_min = 0.0000000000001;
+      string depth:coverage_content_type = "coordinate";         
+
+
+  \\Geophysical measurement Variables
+      
+     double external_temperature(time);
+      string temperature:long_name = "sea water wemperature";
+      string temperature:standard_name = "sea_water_temperature";
+      string temperature:units = "degrees_C";
+      double temperature:_FillValue = NaN;
+      double temperature:valid_max = 30.6457;
+      double temperature:valid_min = 20.354621874999996;
+      string temperature:coordinates = "time latitude longitude depth trajectory";
+      string temperature:coverage_content_type = "physicalMeasurement";  
+      
+     double internal_temperature(time);
+      string internal_temperature:long_name = "internal body temperature";
+      string internal_temperature:units = "degrees_C";
+      double internal_temperature:_FillValue = NaN;
+      double internal_temperature:valid_max = 27.75;
+      double internal_temperature:valid_min = 19.200000762939453;
+      string internal_temperature:coordinates = "time latitude longitude depth trajectory";
+      string internal_temperature:coverage_content_type = "physicalMeasurement";  
+      
+     double illuminance(time);
+      string illuminance:long_name = "light level";
+      string illuminance:units = "lux";
+      double illuminance:_FillValue = NaN;
+      double illuminance:valid_max = 173.0; // double       
+      double illuminance:valid_min = 33.0; // double
+      string illuminance:coordinates = "time latitude longitude depth trajectory";
+      string illuminance:coverage_content_type = "physicalMeasurement";
+
+
+  // global attributes:
+    // CF-ACDD global attributes
+  
+    string :Conventions = "CF-1.7, ACDD 1.3, COARDS";
+    string :Metadata_Conventions = "Unidata Dataset Discovery v1.3";
+    string :featureType = "trajectory";
+    string :cdm_data_type = "Trajectory";
+    string :nodc_template_version = "NODC_NetCDF_Trajectory_Template_v2.0, ATN extension";
+    string :standard_name_vocabulary = "CF Standard Name Table v27";
+    string :title = "Animal telemetry archival tag netCDF template";
+    string :source = "atn.noaa.gov";
+    string :platform = "Thunnus obesus";
+    string :instrument = "Wildlife Computers MK9";
+    string :uuid = "70e37fb7-da57-4dee-81f4-f965a3c08762";
+    string :id = "10.5067/ATN_00001";   // Dataset DOI
+    string :metadata_link = "https://atn.noaa.gov/dataset/ATN_00001"
+    string :references = "Fuller, Daniel & Schaefer, Kurt & Hampton, John & Caillot, Sylvain & Leroy, Bruno & Itano, David. (2015). Vertical movements, behavior, and habitat of bigeye tuna (Thunnus obesus) in the equatorial central Pacific Ocean. Fisheries Research. 172. 57-70. 10.1016/j.fishres.2015.06.024.";
+    string :sea_name = "Pacific";
+    string :naming_authority = "gov.noaa.gov.atn";
+    string :time_coverage_start = "2014-08-07T07:33:30";
+    string :time_coverage_end = "2014-08-31T00:00:00";
+    string :time_coverage_resolution = "PT1S";  //alter time interval of data accordingly
+    double :geospatial_lat_min = 9.908965;
+    double :geospatial_lat_max = 30.639526666666665;
+    string :geospatial_lat_units = "degrees_north";
+    string :geospatial_lat_resolution = "0.1 degree";
+    double :geospatial_lon_min = -127.43765333333333;
+    double :geospatial_lon_max = -118.48636166666667;
+    string :geospatial_lon_units = "degrees_east";
+    string :geospatial_lon_resolution = "0.1 degree";
+    double:geospatial_vertical_min = 500.000; // double
+    double:geospatial_vertical_max = 0.000; // double
+    string:geospatial_vertical_units = "m";
+    string:geospatial_vertical_resolution = "10 meters";
+    string :creator_type = "institution";
+    string :creator_institution = "Inter-American Tropical Tuna Commission (IATTC)";
+    string :creator_email = "kschaefer@iattc.org";
+    string :creator_name = "Schaefer, Kurt";
+    string :creator_role = "Researcher";
+    string :institution = "Inter-American Tropical Tuna Commission (IATTC)";
+    string :publisher_name = "Vardis Tsontos";
+    string :publisher_type = "person";
+    string :publisher_email = "vtsontos@jpl.nasa.gov";
+    string :publisher_url = "https://podaac.jpl.nasa.gov/";
+    string :project = "IATTC Bigeye tuna behavior program";
+    string :processing_level = "Level 2";
+    string :keywords_vocabulary = "CF Standard Names, GCMD Science Keywords";  // add keyword citation as necessary
+    string :keywords = "Temperature, electronic tag, animal telemetry, bigeye, tuna, Thunnus obesus, IATTC, Eastern Tropical Pacific Ocean";
+    string :acknowledgement = "Funding provided by IATTC under grant 2019-XYZ.";
+    string :date_created = "2019-09-18T13:53:21";
+    string :date_modified = "2019-09-18T13:53:21";
+    string :date_issued = "2019-09-18T13:53:21";
+    string :date_metadata_modified = "2019-09-18T13:53:21";
+    string :program = "IATTC Tuna Behavior and Life History";
+    string :product_version = "1.0";
+    string :license = "IATTC data are copyrighted and available publicly on condition of institution and researcher citation.";
+    string :summary = "Implanted archival tag dataset showing the migration and diving patterns of an adult Bigeye tuna in the Eastern Tropical Pacific courtesy of Kurt Schaefer and Dan Fuller of the IATTC";
+
+
+    // Animal Telemetry domain global attributes orgnaized by categroy in Group structures
+    group: Meta_eTag {
+      
+      group: animal {
+        string :platform = "Thunnus obesus";						//REQUIRED
+        string :taxonomic_serial_number = "172428";					//REQUIRED
+        string :length_type_capture = "Straight fork length";				//REQUIRED
+        string :length_method_capture = "measured caliper";				//REQUIRED
+        double :length_capture = 67.0f;							//REQUIRED
+        string :length_unit_capture = "cm";						//REQUIRED
+        string :condition_capture = "good";						//REQUIRED
+        string :lifestage_capture = "juvenile";						//recommended        
+        string :length_type_recapture = "Straight fork length";				//recommended
+        string :length_method_recapture = "predicted";					//recommended        
+        double :length_recapture = 159.0f;						//recommended
+        string :length_unit_recapture = "cm";						//recommended
+        string :condition_recapture = "gut hooked";					//recommended
+        string :fate_recapture = "harvested";						//recommended
+        string :lifestage_recapture = "adult";						//recommended   
+        string :tag_placement = "body cavity";						//recommended 
+        double :hours_soaktime_capture = 0.1f;						//optional  
+        double :hours_soaktime_recapture = 1.5f;					//optional  
+        integer:implant_numsuture = 3;							//optional
+        double :minutes_operation = 0.5f;						//optional
+        double :minutes_revival = 1.0f;							//optional
+        string :sex = "unknown";							//optional
+        string :stock = "unknown";							//optional
+        string :tissue_sample_capture = "Blood-ID02101";				//optional        
+        string :tissue_sample_recapture = "Blood-ID02102";				//optional
+        string :weight_type_capture = "whole";						//optional 
+        string :weight_method_capture = "measured";					//optional  
+        double :weight_capture = 1200.0f;						//optional        
+        string :weight_unit_capture = "g";						//optional     
+        string :weight_type_recapture = "dressed";					//optional 
+        string :weight_method_recapture = "measured";					//optional
+        double :weight_recapture = 2700.0f;						//optional 
+        string :weight_unit_recapture = "g";						//optional               
+        }      
+       
+      group: ancillary_positions {
+        string :ancillary_position_source = "Acoustic detections";			//optional
+        string :ancillary_position_instrumentid = "receiverID1003, receiverID1008, receiverID1121";                  //optional        
+        string :datetime_ancillary_position = "2016-01-04 22:32:21, 2016-02-01 02:41:11, 2016-03-29 09:15:31";       //optional
+        string :ancillary_position_lon = "-153.42,-152.42,-152.49";			//optional        
+        string :ancillary_position_lat = "42.131,41.135,42.422"; 			//optional
+        } 
+
+       group: deployment {
+        string :time_coverage_start = "2005-04-15";					//REQUIRED
+        double :geospatial_lon_start = -95.18f;						//REQUIRED
+        double :geospatial_lat_start = -1.94f;						//REQUIRED
+        string :person_tagger_capture = "D. Fuller";					//REQUIRED
+        string :location_capture = "Catalina Island"; 					//recommended        
+        string :method_capture = "longline";						//recommended          
+        string :baitlure_capture = "sardine";						//optional          
+        string :cruise_capture = "SPURS2";						//optional  
+        double :depth_m_capture = 10.0f;						//optional
+        string :flag_capture = "USA";							//optional
+        string :hook_capture = "18/0 circle";						//optional
+        string :method_aboard = "net";							//optional    
+        string :othertags_capture = "Hallprint PAR007007";				//optional          
+        string :person_angler_capture = "D. Fuller";					//optional     
+        string :school_capture = "FAD";							//optional  
+        string :seastate_capture = "rough";						//optional   
+        string :set_float_capture = "10";						//optional    
+        string :station_capture = "TAO-10";						//optional
+        double :temp_degC_capture = 13.5f;						//optional         
+        string :vessel_capture = "R/V Endeavor";					//optional
+        double :wind_knots_capture = 8.3f;						//optional                
+        }     
+      
+      group: end_of_mission {
+        string :time_coverage_end = "2009-07-02";					//REQUIRED
+        string :geospatial_lon_end = -83.98f;						//REQUIRED
+        string :geospatial_lat_end = -1.45f;						//REQUIRED
+        string :end_details = "recovered by fishing fleet";				//REQUIRED
+        string :end_type = "recaptured";						//REQUIRED
+        string :ldatetime_death = "2017-07-11T18:24:23+00:00";				//optional    
+        }
+        
+      group: instrument {
+        string :instrument_name = "16P0100-Refurb2";					//REQUIRED
+        string :instrument_type = "archival";						//REQUIRED
+        string :firmware = "1235";							//REQUIRED
+        string :manufacturer = "Wildlife Computers";					//REQUIRED
+        string :model = "Mk 9";								//REQUIRED
+        string :person_owner = "Kurt Schaefer";						//REQUIRED
+        string :owner_contact = "kschaefer@iattc.org";					//REQUIRED
+        string :serial_number = "590051";						//REQUIRED    
+        string :date_shipment = "2017-07-11T18:24:23+00:00";				//recommended        
+        string :project = "SPURS2";							//recommended
+        string :specs = "Manufacturer WC- MK9model URI";				//recommended        
+        }
+
+      group: programming {
+        string :programming_report = "URI to report";					//REQUIRED
+        string :programming_software = "WC-prg-v3";					//REQUIRED
+        string :date_programming = "2008-11-02";					//REQUIRED 
+        integer:days_mission = 365;							//recommended        
+        integer:minutes_summary = 1440";						//recommended
+        string :person_programmer = "Kurt Schaefer";					//recommended       
+        integer:seconds_sampling = 15;							//recommended         
+        integer:seconds_writingdata = 300;						//recommended         
+        integer:seconds_sampling_highfreq = 100;					//optional        
+        }
+
+      group: quality {
+        string :found_problem = "no";							//REQUIRED
+        string :person_qc = "Dan Fuller";						//REQUIRED
+        string :problem_affecteddates = "2008-10-02 to 2008-11-30";			//recommended               
+        string :problem_details = "Daily drift after sunset by 1.5 degC";		//recommended
+        integer:problem_numof = 1;							//recommended        
+        string :problem_summary = "Temperature sensor drift";				//recommended        
+        string :calibration_file = "URL to sensor calibration document";		//optional           
+        }     
+
+      group: recovery {
+        string :location_recapture = "San Pedro Channel";				//recommended
+        string :method_recapture = "longline";						//recommended
+        string :person_recapture = "Kurt Schaefer";					//recommended        
+        string :baitlure_recapture = "sardine";						//optional
+        string :cruise_recapture = "Spurs3";						//optional       
+        double :depth_m_recapture = 10.0f;						//optional       
+        string :flag_recapture = "Chile";						//optional        
+        string :hook_recapture = "18/0 Circle";						//optional
+        string :person_tagger_recapture = "Kurt Schaefer";				//optional        
+        string :retagged_recapture = "Hallprint PAR007007";				//optional          
+        string :school_recapture = "FAD";						//optional        
+        string :seastate_recapture = "calm";						//optional        
+        string :set_float_recapture = "160";						//optional        
+        string :station_recapture = "TAO-12";						//optional        
+        double :temp_degC_recapture = 12.6f;						//optional         
+        string :vessel_recapture = "R/V Gamboa";					//optional
+        double :wind_knots_recapture = 6f;						//optional
+        }
+
+      group: waypoints {
+        string :waypoints_source = "modeled";						//REQUIRED
+        string :waypoints_method = "ukfsst"; 						//recommended
+        string :geolocation_parameters = "diffusion_coefficien:0.3, MUR-SST";		//recommended        
+        string :interpolation_method = "crawl"; 					//recommended        
+        string :interpolation_time = "gap filling";					//recommended
+        string :waypoints_software = "UKFSST_v3";					//recommended
+        string :geolocation_output = ftp://myserver/myfiles.zip;			//optional       
+        }           
+      }
+    }
