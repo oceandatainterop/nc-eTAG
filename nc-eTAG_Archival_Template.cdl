@@ -40,7 +40,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       double longitude_uncertainty(time);
       string longitude_uncertainty:long_name = "derived uncertainty around longitude estimate";
       string longitude_uncertainty:standard_name = "longitude standard_error";
-      string longitude_uncertainty:units = "degrees ";
+      string longitude_uncertainty:units = "degrees";
       double longitude_uncertainty:_FillValue = NaN;
       double longitude_uncertainty:valid_max = 0.05;
       double longitude_uncertainty:valid_min = 0.01;
@@ -60,7 +60,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       double latitude_uncertainty(time);
       string latitude_uncertainty:long_name = "derived uncertainty around latitude estimate";
       string latitude_uncertainty:standard_name = "latitude standard_error";
-      string latitude_uncertainty:units = "degrees ";     
+      string latitude_uncertainty:units = "degrees";     
       double latitude_uncertainty:_FillValue = NaN;      
       double latitude_uncertainty:valid_max = 0.05;
       double latitude_uncertainty:valid_min = 0.01;
