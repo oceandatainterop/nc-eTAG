@@ -1,7 +1,9 @@
-netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
+netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
   dimensions:
-    time = 2046391;
-    HFtime = 1000000;    
+    time = 1000;
+    bins_freq = 14;
+    bins_pdt = 8;
+    bnds =2;
     str_len = 6;    
     
   variables:
@@ -9,14 +11,17 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
   //Coordinate and Auxiliary Coordinate Variables
   
     char trajectory(str_len);
-      string trajectory:cf_role = "trajectory_id";
+      string :cf_role = "trajectory_id";
   
      double time(time);
-      string time:long_name = "Time of observation";
+      string time:long_name = "Time of observation interval";
       string time:standard_name = "time";
       string time:units = "seconds since 1970-01-01T00:00:00";  // UTC
       string time:axis = "T";
+      string time:bounds = "time_bnds”;
       string time:coverage_content_type = "coordinate";
+
+     double time_bnds(time, bnds);
 
      double location_freshness(time);
       string location_freshness:long_name = "location_freshness";
@@ -26,18 +31,8 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double location_freshness:valid_max = 86340.0;
       double location_freshness:valid_min = 0.0;
       string location_freshness:coverage_content_type = "auxiliaryInformation";
-      
-     double HFlocation_freshness(HFtime);
-      string HFlocation_freshness:long_name = "location_freshness for high frequency observation periods";
-      string HFlocation_freshness:comment = "time since last latitude and longitude high frequency observations";
-      string HFlocation_freshness:units = "seconds";
-      double HFlocation_freshness:_FillValue = NaN;
-      double HFlocation_freshness:valid_max = 25340.0;
-      double HFlocation_freshness:valid_min = 0.0;
-      string HFlocation_freshness:coverage_content_type = "auxiliaryInformation";            
 
-    
- double longitude(time);
+     double longitude(time);
       string longitude:long_name = "estimated longitude";
       string longitude:standard_name = "longitude";
       string longitude:units = "degrees_east";      
@@ -77,136 +72,92 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double latitude_uncertainty:valid_min = 0.01;
       string latitude_uncertainty:coverage_content_type = "qualityInformation";
       
-     double depth(time);
-      string depth:long_name = "measured depth";
+      double depth (bins_freq);
+      string depth:long_name = "depth interval lower bound";
       string depth:standard_name = "depth";
       string depth:units = "m";  
       string depth:axis = "Z"; 
       string depth:positive = "down";
-      double depth:_FillValue = NaN;
       double depth:valid_max = 500.000;
       double depth:valid_min = 0.000;
+      string depth:bounds = "depth_bnds";
       string depth:coverage_content_type = "coordinate";
-        
-     double HFtime(HFtime);
-      string HFtime:long_name = "Time of high frequency observation periods";
-      string HFtime:standard_name = "time";
-      string HFtime:units = "seconds since 1970-01-01T00:00:00";  // UTC
-      string HFtime:axis = "T";
-      string HFtime:coverage_content_type = "coordinate";
-
-     double HFlongitude(HFtime);
-      string HFlongitude:long_name = "estimated longitude for high frequency observation periods";
-      string HFlongitude:standard_name = "longitude";
-      string HFlongitude:units = "degrees_east";      
-      string HFlongitude:axis = "X";
-      double HFlongitude:_FillValue = NaN;
-      double HFlongitude:valid_max = -118.48636166666667;
-      double HFlongitude:valid_min = -127.43765333333333;
-      string HFlongitude:ancillary_variables = "HFlongitude_uncertainty";
-      string HFlongitude:coverage_content_type = "coordinate";
+      string depth:comment = "lower bounds of programmed PAT depth intervals used in transmitted daily summary bin-depth data";
       
-      double HFlongitude_uncertainty(HFtime);
-      string HFlongitude_uncertainty:long_name = "derived uncertainty around longitude estimate for high frequency observation periods";
-      string HFlongitude_uncertainty:standard_name = "longitude standard_error";
-      string HFlongitude_uncertainty:units = "degrees";
-      double HFlongitude_uncertainty:_FillValue = NaN;
-      double HFlongitude_uncertainty:valid_max = 0.05;
-      double HFlongitude_uncertainty:valid_min = 0.01;
-      string HFlongitude_uncertainty:coverage_content_type = "qualityInformation";    
+     double depth_bnds (bins_freq, bnds);
 
-     double HFlatitude(HFtime);
-      string HFlatitude:long_name = "estimated latitude for high frequency observation periods";
-      string HFlatitude:standard_name = "latitude";
-      string HFlatitude:units = "degrees_north";  
-      string HFlatitude:axis = "Y";      
-      double HFlatitude:_FillValue = NaN;
-      double HFlatitude:valid_max = 30.639526666666665;
-      double HFlatitude:valid_min = 9.908965;
-      string HFlatitude:ancillary_variables = "latitude_uncertainty";
-      string HFlatitude:coverage_content_type = "coordinate";
+     double temperature (bins_freq);
+      string temperature:long_name = "temperature interval lower bound";
+      string temperature:standard_name = "temperature";
+      string temperature:units = "degrees_C";
+      double temperature:valid_max = 20.0;
+      double temperature:valid_min = 10.0;
+      string temperature:bounds = "temperature_bnds";
+      double temperature:coverage_content_type = "coordinate";
+      string temperature:comment = "lower bounds of programmed PAT temperature intervals used in transmitted daily summary bin-temperature data";
+
+      double temperature_bnds (bins_freq, bnds);
+
+      PDTdepth (time, bins_pdt);
+      string PDTdepth:long_name = "dynamic depth interval lower bound";
+      string PDTdepth:standard_name = "depth";
+      string PDTdepth:units = "m";  
+      string PDTdepth:axis = "Z"; 
+      string PDTdepth:positive = "down";
+      double PDTdepth:valid_max = 500.0;
+      double PDTdepth:valid_min = 0.0;
+      string PDTdepth:bounds = "PDTdepth_bnds";
+      string PDTdepth:coverage_content_type = "coordinate";
+      string PDTdepth:comment = "lower bounds of PAT dynamic PDT depth intervals used in transmitted daily summary data";
       
-     double HFlatitude_uncertainty(HFtime);
-      string HFlatitude_uncertainty:long_name = "derived uncertainty around latitude estimate for high frequency observation periods";
-      string HFlatitude_uncertainty:standard_name = "latitude standard_error";
-      string HFlatitude_uncertainty:units = "degrees";     
-      double HFlatitude_uncertainty:_FillValue = NaN;      
-      double HFlatitude_uncertainty:valid_max = 0.05;
-      double HFlatitude_uncertainty:valid_min = 0.01;
-      string HFlatitude_uncertainty:coverage_content_type = "qualityInformation"; 
-
-      double HFdepth(HFtime);
-      string HFdepth:long_name = "measured depth for high frequency observation periods";
-      string HFdepth:standard_name = "depth";
-      string HFdepth:units = "m";  
-      string HFdepth:axis = "Z"; 
-      string HFdepth:positive = "down";
-      double HFdepth:_FillValue = NaN;
-      double HFdepth:valid_max = 500.000;
-      double HFdepth:valid_min = 0.000;
-      string HFdepth:coverage_content_type = "coordinate"; 
+      double PDTdepth_bnds (time, bins_pdt, bnds);
 
 
   //Geophysical measurement Variables
       
-     double external_temperature(time);
-      string external_temperature:long_name = "sea water wemperature";
-      string external_temperature:standard_name = "sea_water_temperature";
-      string external_temperature:units = "degrees_C";
-      double external_temperature:_FillValue = NaN;
-      double external_temperature:valid_max = 30.6457;
-      double external_temperature:valid_min = 20.354621874999996;
-      string external_temperature:coordinates = "time latitude longitude depth trajectory";
-      string external_temperature:coverage_content_type = "physicalMeasurement";  
+    double depth_frequency(time, bins_freq);
+      string depth_frequency:long_name = "Percentage time spent at a given pre-programmed depth interval";
+      string depth_frequency:units = "%";
+      double depth_frequency:_FillValue = NaN;
+      double depth_frequency:valid_max = 100.0;
+      double depth_frequency:valid_min = 0.0;
+      double depth_frequency:cell_methods = time : depth : count;
+      string depth_frequency:coordinates = "time latitude longitude depth trajectory";
+      string depth_frequency:coverage_content_type = "physicalMeasurement";  
       
-     double internal_temperature(time);
-      string internal_temperature:long_name = "internal body temperature";
-      string internal_temperature:units = "degrees_C";
-      double internal_temperature:_FillValue = NaN;
-      double internal_temperature:valid_max = 27.75;
-      double internal_temperature:valid_min = 19.200000762939453;
-      string internal_temperature:coordinates = "time latitude longitude depth trajectory";
-      string temperature:coverage_content_type = "physicalMeasurement";  
-      
-     double illuminance(time);
-      string illuminance:long_name = "light level";
-      string illuminance:units = "lux";
-      double illuminance:_FillValue = NaN;
-      double illuminance:valid_max = 173.0; // double       
-      double illuminance:valid_min = 33.0; // double
-      string illuminance:coordinates = "time latitude longitude depth trajectory";
-      string illuminance:coverage_content_type = "physicalMeasurement";
+     double temperature_frequency(time, bins_freq);
+      string temperature_frequency:long_name = "Percentage time spent at a given pre-programmed temperature interval";
+      string temperature_frequency:units = "%";
+      double temperature_frequency:_FillValue = NaN;
+      double temperature_frequency:valid_max = 100.0;
+      double temperature_frequency:valid_min = 0.0;
+      double temperature_frequency:cell_methods = time : temperature : count;
+      string temperature_frequency:coordinates = "time latitude longitude temperature trajectory";
+      string temperature_frequency:coverage_content_type = "physicalMeasurement";
 
-     double HFexternal_temperature(HFtime);
-      string HFexternal_temperature:long_name = "High frequency sea water temperature observations";
-      string HFexternal_temperature:standard_name = "sea_water_temperature";
-      string HFexternal_temperature:units = "degrees_C";
-      double HFexternal_temperature:_FillValue = NaN;
-      double HFexternal_temperature:valid_max = 30.6457;
-      double HFexternal_temperature:valid_min = 20.354621874999996;
-      string HFexternal_temperature:coordinates = "HFtime HFlatitude HFlongitude HFdepth trajectory";
-      string HFexternal_temperature:coverage_content_type = "physicalMeasurement";
-      string HFexternal_temperature:comment = "External temperature measurements during high frequency sensor measurement periods";
+
       
-     double HFinternal_temperature(HFtime);
-      string HFinternal_temperature:long_name = "High frequency internal body temperature";
-      string HFinternal_temperature:units = "degrees_C";
-      double HFinternal_temperature:_FillValue = NaN;
-      double HFinternal_temperature:valid_max = 27.75;
-      double HFinternal_temperature:valid_min = 19.200000762939453;
-      string HFinternal_temperature:coordinates = "HFtime HFlatitude HFlongitude HFdepth trajectory";
-      string HFinternal_temperature:coverage_content_type = "physicalMeasurement";
-      string HFinternal_temperature:comment = "Internal temperature measurements during high frequency sensor measurement periods";      
-      
-     double HFilluminance(HFtime);
-      string HFilluminance:long_name = "High frequency light level";
-      string HFilluminance:units = "lux";
-      double HFilluminance:_FillValue = NaN;
-      double HFilluminance:valid_max = 173.0; // double       
-      double HFilluminance:valid_min = 33.0; // double
-      string HFilluminance:coordinates = "HFtime HFlatitude HFlongitude HFdepth trajectory";
-      string HFilluminance:coverage_content_type = "physicalMeasurement";
-      string HFilluminance:comment = "Light level measurements during high frequency sensor measurement periods";
+     double PDTtemperature_Min(time, bins_pdt);
+      string PDTtemperature_Min:long_name = "Minimum and maximum temperatures at dynamic depth intervals";
+      string PDTtemperature_Min:units = "degrees_C";
+      double PDTtemperature_Min:_FillValue = NaN;
+      double PDTtemperature_Min:valid_max = 32.0;
+      double PDTtemperature_Min:valid_min = -2.0;
+      double PDTtemperature_Min:cell_methods = time : depth : min;
+      string PDTtemperature_Min:coordinates = "time latitude longitude PDTdepth trajectory";
+      string PDTtemperature_Min:coverage_content_type = "physicalMeasurement";
+      string PDTtemperature_Min:comment = "Minimum temperatures over time for PAT dynamic PDT depth intervals in transmitted daily summary data";
+
+     double PDTtemperature_Max(time, bins_pdt);
+      string PDTtemperature_Max:long_name = "Minimum and maximum temperatures at dynamic depth intervals";
+      string PDTtemperature_Max:units = "degrees_C";
+      double PDTtemperature_Max:_FillValue = NaN;
+      double PDTtemperature_Max:valid_max = 32.0;
+      double PDTtemperature_Max:valid_min = -2.0;
+      double PDTtemperature_Max:cell_methods = time : depth : max;
+      string PDTtemperature_Max:coordinates = "time latitude longitude PDTdepth trajectory";
+      string PDTtemperature_Max:coverage_content_type = "physicalMeasurement";
+      string PDTtemperature_Max:comment = "Minimum temperatures over time for PAT dynamic PDT depth intervals in transmitted daily summary data";
 
 
   // Global attributes:
@@ -218,7 +169,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     string :cdm_data_type = "Trajectory";
     string :nodc_template_version = "NODC_NetCDF_Trajectory_Template_v2.0, ATN extension";
     string :standard_name_vocabulary = "CF Standard Name Table v27";
-    string :title = "Animal telemetry archival HF/LF tag netCDF template";
+    string :title = "Animal telemetry archival tag netCDF template";
     string :source = "atn.noaa.gov";
     string :platform = "Thunnus obesus";
     string :instrument = "Wildlife Computers MK9";
@@ -230,7 +181,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     string :naming_authority = "gov.noaa.gov.atn";
     string :time_coverage_start = "2014-08-07T07:33:30";
     string :time_coverage_end = "2014-08-31T00:00:00";
-    string :time_coverage_resolution = "PT1S";  //alter time interval of data accordingly
+    string :time_coverage_resolution = "PT1D";  //alter to reflect time interval of data accordingly
     double :geospatial_lat_min = 9.908965;
     double :geospatial_lat_max = 30.639526666666665;
     string :geospatial_lat_units = "degrees_north";
@@ -241,8 +192,8 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     string :geospatial_lon_resolution = "0.1 degree";
     double :geospatial_vertical_min = 500.000; // double
     double :geospatial_vertical_max = 0.000; // double
-    string :geospatial_vertical_units = "m";
-    string :geospatial_vertical_resolution = "10 meters";
+    string: geospatial_vertical_units = "m";
+    string: geospatial_vertical_resolution = "10 meters";
     string :creator_type = "institution";
     string :creator_institution = "Inter-American Tropical Tuna Commission (IATTC)";
     string :creator_email = "kschaefer@iattc.org";
@@ -286,10 +237,12 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
         string :condition_recapture = "gut hooked";					//recommended
         string :fate_recapture = "harvested";						//recommended
         string :lifestage_recapture = "adult";						//recommended   
-        string :tag_placement = "body cavity";						//recommended 
+        string :tag_placement = "second dorsal fin";					//recommended 
         double :hours_soaktime_capture = 0.1f;						//optional  
         double :hours_soaktime_recapture = 1.5f;					//optional  
-        integer:implant_numsuture = 3;							//optional
+        integer :implant_numsuture = 3;							//optional
+        double :minutes_fighttime_capture = 13.0f;					//optional        
+        double :minutes_fighttime_recapture = 25.0f;					//optional
         double :minutes_operation = 0.5f;						//optional
         double :minutes_revival = 1.0f;							//optional
         string :sex = "unknown";							//optional
@@ -304,21 +257,33 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
         string :weight_method_recapture = "measured";					//optional
         double :weight_recapture = 2700.0f;						//optional 
         string :weight_unit_recapture = "g";						//optional               
-        }
+        }      
 
       group: attachment {
         string :attachment_method = "anchor";						//REQUIRED
+        double :anchor_depth_cm = 8.0f;							//recommended
+        string :anchor_dimensions_mm = "20 L x 14 W"					//recommended
+        string :anchor_material = "nylon"						//recommended
+        string :attachment_product = "VetBond"						//recommended
+        string :mount_type = "fin"							//recommended
+        string :release_method = "corrosive burn wire"					//recommended
+        string :tether_assembly = "heat-shrink"						//recommended
+        double :tether_length_cm = 10.0f;						//recommended
+        string :tether_material = "monofilament"					//recommended
         string :anesthetic_product = "metomidate";					//optional 
         string :antifouling_product = " Micron66";					//optional
+        string :antiseptic_product = "Iodine";						//optional       
+        string :float_additional = "no";						//optional          
+        string :release_forced = "no";							//optional         
         }
-   
+        
       group: ancillary_positions {
         string :ancillary_position_source = "Acoustic detections";			//optional
         string :ancillary_position_instrumentid = "receiverID1003, receiverID1008, receiverID1121";                  //optional        
         string :datetime_ancillary_position = "2016-01-04 22:32:21, 2016-02-01 02:41:11, 2016-03-29 09:15:31";       //optional
         string :ancillary_position_lon = "-153.42,-152.42,-152.49";			//optional        
         string :ancillary_position_lat = "42.131,41.135,42.422"; 			//optional
-        string :ancillary_position_quality = " LC0,LC1,LCA"; 				//optional
+        string :ancillary_position_quality = "LC0,LC1,LCA";				//optional              
         } 
 
        group: deployment {
@@ -366,19 +331,22 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
         string :serial_number = "590051";						//REQUIRED    
         string :date_shipment = "2017-07-11T18:24:23+00:00";				//recommended        
         string :project = "SPURS2";							//recommended           
+        string :ptt = "1023456";							//recommended
+        string :ptt_hex = "&#8217"; 							//recommended        
         string :specs = "Manufacturer WC- MK9model URI";				//recommended        
         }
 
       group: programming {
         string :programming_report = "URI to report";					//REQUIRED
         string :programming_software = "WC-prg-v3";					//REQUIRED
-        string :date_programming = "2008-11-02";					//REQUIRED 
-        integer :days_mission = 365;							//recommended        
-        integer :minutes_summary = 1440";						//recommended
-        string :person_programmer = "Kurt Schaefer";					//recommended       
-        integer :seconds_sampling = 15;							//recommended         
-        integer :seconds_writingdata = 300;						//recommended         
-        integer :seconds_sampling_highfreq = 100;					//optional        
+        string :date_programming = "2008-11-02";					//REQUIRED
+        integer: days_constantdepth = 1;						//recommended        
+        integer: days_mission = 365;							//recommended        
+        integer: minutes_summary = 1440";						//recommended
+        string : person_programmer = "Kurt Schaefer";					//recommended       
+        integer: seconds_sampling = 15;							//recommended         
+        integer: seconds_writingdata = 300;						//recommended         
+        integer: seconds_sampling_highfreq = 100;					//optional        
         }
 
       group: quality {
@@ -386,11 +354,11 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
         string :person_qc = "Dan Fuller";						//REQUIRED
         string :problem_affecteddates = "2008-10-02 to 2008-11-30";			//recommended               
         string :problem_details = "Daily drift after sunset by 1.5 degC";		//recommended
-        integer:problem_numof = 1;							//recommended        
+        integer :problem_numof = 1;							//recommended        
         string :problem_summary = "Temperature sensor drift";				//recommended        
         string :calibration_file = "URL to sensor calibration document";		//optional           
         }     
-
+ 
       group: recovery {
         string :location_recapture = "San Pedro Channel";				//recommended
         string :method_recapture = "longline";						//recommended
