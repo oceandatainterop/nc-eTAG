@@ -1,4 +1,4 @@
-netcdf file\:/C\:/Tag_Acoustic {
+netcdf file\:/C\:/nc-eTAG_Acoustic {
 
 // Draft nc-eTag template for Acoustic telemetry data (eg. time series of acoustic tag detections for an array of receiver stations for a given tagged fish)
 // Source: NASA-OIIP project
@@ -82,7 +82,7 @@ netcdf file\:/C\:/Tag_Acoustic {
     
     group: Meta_eTag_n {		    	// Metadata Group & subgroups for last tagged animal
 	 group: animal {...}
-	 …
+	 ...
 	 group: waypoints {...}
 	 }
         }
