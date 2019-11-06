@@ -121,7 +121,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       double depth_frequency:_FillValue = NaN;
       double depth_frequency:valid_max = 100.0;
       double depth_frequency:valid_min = 0.0;
-      double depth_frequency:cell_methods = time : depth : count;
+      double depth_frequency:cell_methods = "time : depth : count";
       string depth_frequency:coordinates = "time latitude longitude depth trajectory";
       string depth_frequency:coverage_content_type = "physicalMeasurement";  
       
@@ -131,7 +131,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       double temperature_frequency:_FillValue = NaN;
       double temperature_frequency:valid_max = 100.0;
       double temperature_frequency:valid_min = 0.0;
-      double temperature_frequency:cell_methods = time : temperature : count;
+      double temperature_frequency:cell_methods = "time : temperature : count";
       string temperature_frequency:coordinates = "time latitude longitude temperature trajectory";
       string temperature_frequency:coverage_content_type = "physicalMeasurement";
 
@@ -143,7 +143,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       double PDTtemperature_Min:_FillValue = NaN;
       double PDTtemperature_Min:valid_max = 32.0;
       double PDTtemperature_Min:valid_min = -2.0;
-      double PDTtemperature_Min:cell_methods = time : depth : min;
+      double PDTtemperature_Min:cell_methods = "time : depth : min";
       string PDTtemperature_Min:coordinates = "time latitude longitude PDTdepth trajectory";
       string PDTtemperature_Min:coverage_content_type = "physicalMeasurement";
       string PDTtemperature_Min:comment = "Minimum temperatures over time for PAT dynamic PDT depth intervals in transmitted daily summary data";
@@ -154,7 +154,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       double PDTtemperature_Max:_FillValue = NaN;
       double PDTtemperature_Max:valid_max = 32.0;
       double PDTtemperature_Max:valid_min = -2.0;
-      double PDTtemperature_Max:cell_methods = time : depth : max;
+      double PDTtemperature_Max:cell_methods = "time : depth : max";
       string PDTtemperature_Max:coordinates = "time latitude longitude PDTdepth trajectory";
       string PDTtemperature_Max:coverage_content_type = "physicalMeasurement";
       string PDTtemperature_Max:comment = "Minimum temperatures over time for PAT dynamic PDT depth intervals in transmitted daily summary data";
