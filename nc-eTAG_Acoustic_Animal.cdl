@@ -1,0 +1,104 @@
+netcdf file\:/C\:/nc-eTAG_Acoustic {
+
+// Draft nc-eTag template for Acoustic telemetry data (eg. time series of acoustic tag detections for an array of receiver stations for a given tagged fish)
+// Source: NASA-OIIP project
+// Contact:  vtsontos@jpl.nasa.gov
+
+  dimensions:
+    animal = 50;
+    time = 2046391;
+    str_len = 12;    
+    
+  variables:
+  
+  //Coordinate and Auxiliary Coordinate Variables
+  
+    char animal(animal, str_len);
+      string animal:cf_role = "animal_id";
+  
+    double time(animal, time);
+      string time:long_name = "Time of acoustic tag detection";
+      string time:standard_name = "time";
+      string time:units = "seconds since 1970-01-01T00:00:00";  // UTC
+      string time:axis = "T";
+      string time:coverage_content_type = "coordinate";
+
+      double longitude(animal, time);
+      string longitude:long_name = "longitude of acoustic receiver station";
+      string longitude:standard_name = "longitude";
+      string longitude:units = "degrees_east";      
+      string longitude:axis = "X";
+      double longitude:_FillValue = NaN;
+      double longitude:valid_max = -118.48636166666667;
+      double longitude:valid_min = -127.43765333333333;
+      string longitude:coverage_content_type = "coordinate";
+      
+      double latitude(animal, time);
+      string latitude:long_name = "latitude of acoustic receiver station"";
+      string latitude:standard_name = "latitude";
+      string latitude:units = "degrees_north";  
+      string latitude:axis = "Y";      
+      double latitude:_FillValue = NaN;
+      double latitude:valid_max = 30.639526666666665;
+      double latitude:valid_min = 9.908965;
+      string latitude:coverage_content_type = "coordinate";
+      
+      double depth(animal, time);
+      string depth:long_name = "depth  of acoustic receiver station"";
+      string depth:standard_name = "depth";
+      string depth:units = "m";  
+      string depth:axis = "Z"; 
+      string depth:positive = "down";
+      double depth:_FillValue = NaN;
+      double depth:valid_max = 563.639526666666665;
+      double depth:valid_min = 0.0000000000001;
+      string depth:coverage_content_type = "coordinate";         
+
+
+  //Tag detection Variable
+      
+    char tag_detection(animal, time, str_len);
+      string tag_detection:long_name = "unique identifier of receiver station where tag detected ";
+      double tag_detection:_FillValue = NaN;
+      string tag_detection:coordinates = "time latitude longitude depth animal";
+      string temperature:coverage_content_type = " thematicClassification";  
+      
+
+
+  //Global attributes:
+    
+    // CF-ACDD global attributes organized by type in Group structures
+    group: cf {...}
+    group: acdd {...}
+
+
+    // Acoustic Animal Telemetry domain global attributes organized by category in Group structures
+    group: Meta_eTag_1 {		    	// Metadata Group & subgroups for first tagged animal
+	 group: animal {...}
+	 ...
+	 group: waypoints {...}
+	 }
+    ...
+    
+    group: Meta_eTag_n {		    	// Metadata Group & subgroups for last tagged animal
+	 group: animal {...}
+	 ...
+	 group: waypoints {...}
+	 }
+        }
+
+    // Acoustic Receiver global attributes organized by category in Group structures
+    group: Meta_receiver_1 {		    	// Metadata Group & subgroups for first acoustic receiver
+	 group: instrument {...}
+	 ...
+	 group: deployment {...}
+	 }
+    ...
+    
+    group: Meta_receiver_n {		    	// Metadata Group & subgroups for last acoustic receiver
+	 group: instrument {...}
+	 ...
+	 group: deployment {...}
+	 }
+        }
+    }
