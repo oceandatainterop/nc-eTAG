@@ -11,14 +11,14 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     char trajectory(str_len);
       string trajectory:cf_role = "trajectory_id";
   
-     double time(time);
+    double time(time);
       string time:long_name = "Time of observation";
       string time:standard_name = "time";
       string time:units = "seconds since 1970-01-01T00:00:00";  // UTC
       string time:axis = "T";
       string time:coverage_content_type = "coordinate";
 
-     double location_freshness(time);
+    double location_freshness(time);
       string location_freshness:long_name = "location_freshness";
       string location_freshness:comment = "time since last latitude and longitude observations";
       string location_freshness:units = "seconds";
@@ -27,7 +27,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double location_freshness:valid_min = 0.0;
       string location_freshness:coverage_content_type = "auxiliaryInformation";
       
-     double HFlocation_freshness(HFtime);
+    double HFlocation_freshness(HFtime);
       string HFlocation_freshness:long_name = "location_freshness for high frequency observation periods";
       string HFlocation_freshness:comment = "time since last latitude and longitude high frequency observations";
       string HFlocation_freshness:units = "seconds";
@@ -36,8 +36,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double HFlocation_freshness:valid_min = 0.0;
       string HFlocation_freshness:coverage_content_type = "auxiliaryInformation";            
 
-    
- double longitude(time);
+    double longitude(time);
       string longitude:long_name = "estimated longitude";
       string longitude:standard_name = "longitude";
       string longitude:units = "degrees_east";      
@@ -48,7 +47,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string longitude:ancillary_variables = "longitude_uncertainty";
       string longitude:coverage_content_type = "coordinate";
       
-      double longitude_uncertainty(time);
+    double longitude_uncertainty(time);
       string longitude_uncertainty:long_name = "derived uncertainty around longitude estimate";
       string longitude_uncertainty:standard_name = "longitude standard_error";
       string longitude_uncertainty:units = "degrees";
@@ -57,7 +56,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double longitude_uncertainty:valid_min = 0.01;
       string longitude_uncertainty:coverage_content_type = "qualityInformation";    
 
-     double latitude(time);
+    double latitude(time);
       string latitude:long_name = "estimated latitude";
       string latitude:standard_name = "latitude";
       string latitude:units = "degrees_north";  
@@ -68,7 +67,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string latitude:ancillary_variables = "latitude_uncertainty";
       string latitude:coverage_content_type = "coordinate";
       
-     double latitude_uncertainty(time);
+    double latitude_uncertainty(time);
       string latitude_uncertainty:long_name = "derived uncertainty around latitude estimate";
       string latitude_uncertainty:standard_name = "latitude standard_error";
       string latitude_uncertainty:units = "degrees";     
@@ -77,7 +76,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double latitude_uncertainty:valid_min = 0.01;
       string latitude_uncertainty:coverage_content_type = "qualityInformation";
       
-     double depth(time);
+    double depth(time);
       string depth:long_name = "measured depth";
       string depth:standard_name = "depth";
       string depth:units = "m";  
@@ -88,14 +87,14 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double depth:valid_min = 0.000;
       string depth:coverage_content_type = "coordinate";
         
-     double HFtime(HFtime);
+    double HFtime(HFtime);
       string HFtime:long_name = "Time of high frequency observation periods";
       string HFtime:standard_name = "time";
       string HFtime:units = "seconds since 1970-01-01T00:00:00";  // UTC
       string HFtime:axis = "T";
       string HFtime:coverage_content_type = "coordinate";
 
-     double HFlongitude(HFtime);
+    double HFlongitude(HFtime);
       string HFlongitude:long_name = "estimated longitude for high frequency observation periods";
       string HFlongitude:standard_name = "longitude";
       string HFlongitude:units = "degrees_east";      
@@ -106,7 +105,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFlongitude:ancillary_variables = "HFlongitude_uncertainty";
       string HFlongitude:coverage_content_type = "coordinate";
       
-      double HFlongitude_uncertainty(HFtime);
+    double HFlongitude_uncertainty(HFtime);
       string HFlongitude_uncertainty:long_name = "derived uncertainty around longitude estimate for high frequency observation periods";
       string HFlongitude_uncertainty:standard_name = "longitude standard_error";
       string HFlongitude_uncertainty:units = "degrees";
@@ -115,7 +114,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double HFlongitude_uncertainty:valid_min = 0.01;
       string HFlongitude_uncertainty:coverage_content_type = "qualityInformation";    
 
-     double HFlatitude(HFtime);
+    double HFlatitude(HFtime);
       string HFlatitude:long_name = "estimated latitude for high frequency observation periods";
       string HFlatitude:standard_name = "latitude";
       string HFlatitude:units = "degrees_north";  
@@ -126,7 +125,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFlatitude:ancillary_variables = "latitude_uncertainty";
       string HFlatitude:coverage_content_type = "coordinate";
       
-     double HFlatitude_uncertainty(HFtime);
+    double HFlatitude_uncertainty(HFtime);
       string HFlatitude_uncertainty:long_name = "derived uncertainty around latitude estimate for high frequency observation periods";
       string HFlatitude_uncertainty:standard_name = "latitude standard_error";
       string HFlatitude_uncertainty:units = "degrees";     
@@ -135,7 +134,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double HFlatitude_uncertainty:valid_min = 0.01;
       string HFlatitude_uncertainty:coverage_content_type = "qualityInformation"; 
 
-      double HFdepth(HFtime);
+    double HFdepth(HFtime);
       string HFdepth:long_name = "measured depth for high frequency observation periods";
       string HFdepth:standard_name = "depth";
       string HFdepth:units = "m";  
@@ -146,10 +145,9 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       double HFdepth:valid_min = 0.000;
       string HFdepth:coverage_content_type = "coordinate"; 
 
-
   //Geophysical measurement Variables
       
-     double external_temperature(time);
+    double external_temperature(time);
       string external_temperature:long_name = "sea water wemperature";
       string external_temperature:standard_name = "sea_water_temperature";
       string external_temperature:units = "degrees_C";
@@ -159,7 +157,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string external_temperature:coordinates = "time latitude longitude depth trajectory";
       string external_temperature:coverage_content_type = "physicalMeasurement";  
       
-     double internal_temperature(time);
+    double internal_temperature(time);
       string internal_temperature:long_name = "internal body temperature";
       string internal_temperature:units = "degrees_C";
       double internal_temperature:_FillValue = NaN;
@@ -168,7 +166,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string internal_temperature:coordinates = "time latitude longitude depth trajectory";
       string temperature:coverage_content_type = "physicalMeasurement";  
       
-     double illuminance(time);
+    double illuminance(time);
       string illuminance:long_name = "light level";
       string illuminance:units = "lux";
       double illuminance:_FillValue = NaN;
@@ -177,7 +175,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string illuminance:coordinates = "time latitude longitude depth trajectory";
       string illuminance:coverage_content_type = "physicalMeasurement";
 
-     double HFexternal_temperature(HFtime);
+    double HFexternal_temperature(HFtime);
       string HFexternal_temperature:long_name = "High frequency sea water temperature observations";
       string HFexternal_temperature:standard_name = "sea_water_temperature";
       string HFexternal_temperature:units = "degrees_C";
@@ -188,7 +186,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFexternal_temperature:coverage_content_type = "physicalMeasurement";
       string HFexternal_temperature:comment = "External temperature measurements during high frequency sensor measurement periods";
       
-     double HFinternal_temperature(HFtime);
+    double HFinternal_temperature(HFtime);
       string HFinternal_temperature:long_name = "High frequency internal body temperature";
       string HFinternal_temperature:units = "degrees_C";
       double HFinternal_temperature:_FillValue = NaN;
@@ -198,7 +196,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFinternal_temperature:coverage_content_type = "physicalMeasurement";
       string HFinternal_temperature:comment = "Internal temperature measurements during high frequency sensor measurement periods";      
       
-     double HFilluminance(HFtime);
+    double HFilluminance(HFtime);
       string HFilluminance:long_name = "High frequency light level";
       string HFilluminance:units = "lux";
       double HFilluminance:_FillValue = NaN;
@@ -207,7 +205,6 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFilluminance:coordinates = "HFtime HFlatitude HFlongitude HFdepth trajectory";
       string HFilluminance:coverage_content_type = "physicalMeasurement";
       string HFilluminance:comment = "Light level measurements during high frequency sensor measurement periods";
-
 
   // Global attributes:
     // CF-ACDD global attributes
@@ -239,8 +236,8 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     double :geospatial_lon_max = -118.48636166666667;
     string :geospatial_lon_units = "degrees_east";
     string :geospatial_lon_resolution = "0.1 degree";
-    double :geospatial_vertical_min = 500.000; // double
-    double :geospatial_vertical_max = 0.000; // double
+    double :geospatial_vertical_min = 500.000;
+    double :geospatial_vertical_max = 0.000;
     string :geospatial_vertical_units = "m";
     string :geospatial_vertical_resolution = "10 meters";
     string :creator_type = "institution";
@@ -268,8 +265,8 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     string :summary = "Implanted archival tag dataset showing the migration and diving patterns of an adult Bigeye tuna in the Eastern Tropical Pacific courtesy of Kurt Schaeffer and Dann Fuller of the IATTC";
 
     // Animal Telemetry domain global attributes organized by category in Group structures
-    group: Meta_eTag {
-      
+    
+    group: Meta_eTag {   
       group: animal {
         string :platform = "Thunnus obesus";						//REQUIRED
         string :taxonomic_serial_number = "172428";					//REQUIRED
@@ -311,7 +308,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
         string :anesthetic_product = "metomidate";					//optional 
         string :antifouling_product = " Micron66";					//optional
         }
-   
+
       group: ancillary_positions {
         string :ancillary_position_source = "Acoustic detections";			//optional
         string :ancillary_position_instrumentid = "receiverID1003, receiverID1008, receiverID1121";                  //optional        
@@ -321,7 +318,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
         string :ancillary_position_quality = " LC0,LC1,LCA"; 				//optional
         } 
 
-       group: deployment {
+      group: deployment {
         string :time_coverage_start = "2005-04-15";					//REQUIRED
         double :geospatial_lon_start = -95.18f;						//REQUIRED
         double :geospatial_lat_start = -1.94f;						//REQUIRED
@@ -422,4 +419,3 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
         }           
       }
     }
-    

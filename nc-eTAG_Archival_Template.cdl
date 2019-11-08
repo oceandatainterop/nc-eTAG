@@ -26,7 +26,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       double location_freshness:valid_min = 0.0;
       string location_freshness:coverage_content_type = "auxiliaryInformation";
 
-      double longitude(time);
+    double longitude(time);
       string longitude:long_name = "estimated longitude";
       string longitude:standard_name = "longitude";
       string longitude:units = "degrees_east";      
@@ -37,7 +37,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       string longitude:ancillary_variables = "longitude_uncertainty";
       string longitude:coverage_content_type = "coordinate";
       
-      double longitude_uncertainty(time);
+    double longitude_uncertainty(time);
       string longitude_uncertainty:long_name = "derived uncertainty around longitude estimate";
       string longitude_uncertainty:standard_name = "longitude standard_error";
       string longitude_uncertainty:units = "degrees";
@@ -46,7 +46,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       double longitude_uncertainty:valid_min = 0.01;
       string longitude_uncertainty:coverage_content_type = "qualityInformation";    
 
-      double latitude(time);
+    double latitude(time);
       string latitude:long_name = "estimated latitude";
       string latitude:standard_name = "latitude";
       string latitude:units = "degrees_north";  
@@ -57,7 +57,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       string latitude:ancillary_variables = "latitude_uncertainty";
       string latitude:coverage_content_type = "coordinate";
       
-      double latitude_uncertainty(time);
+    double latitude_uncertainty(time);
       string latitude_uncertainty:long_name = "derived uncertainty around latitude estimate";
       string latitude_uncertainty:standard_name = "latitude standard_error";
       string latitude_uncertainty:units = "degrees";     
@@ -66,7 +66,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       double latitude_uncertainty:valid_min = 0.01;
       string latitude_uncertainty:coverage_content_type = "qualityInformation";
       
-      double depth(time);
+    double depth(time);
       string depth:long_name = "measured depth";
       string depth:standard_name = "depth";
       string depth:units = "m";  
@@ -77,10 +77,9 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       double depth:valid_min = 0.0000000000001;
       string depth:coverage_content_type = "coordinate";         
 
-
   //Geophysical measurement Variables
       
-     double external_temperature(time);
+    double external_temperature(time);
       string external_temperature:long_name = "sea water wemperature";
       string external_temperature:standard_name = "sea_water_temperature";
       string external_temperature:units = "degrees_C";
@@ -90,7 +89,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       string external_temperature:coordinates = "time latitude longitude depth trajectory";
       string external_temperature:coverage_content_type = "physicalMeasurement";  
       
-     double internal_temperature(time);
+    double internal_temperature(time);
       string internal_temperature:long_name = "internal body temperature";
       string internal_temperature:units = "degrees_C";
       double internal_temperature:_FillValue = NaN;
@@ -99,7 +98,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       string internal_temperature:coordinates = "time latitude longitude depth trajectory";
       string internal_temperature:coverage_content_type = "physicalMeasurement";  
       
-     double illuminance(time);
+    double illuminance(time);
       string illuminance:long_name = "light level";
       string illuminance:units = "lux";
       double illuminance:_FillValue = NaN;
@@ -107,7 +106,6 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
       double illuminance:valid_min = 33.0; // double
       string illuminance:coordinates = "time latitude longitude depth trajectory";
       string illuminance:coverage_content_type = "physicalMeasurement";
-
 
   // Global attributes:
     // CF-ACDD global attributes
@@ -139,8 +137,8 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
     double :geospatial_lon_max = -118.48636166666667;
     string :geospatial_lon_units = "degrees_east";
     string :geospatial_lon_resolution = "0.1 degree";
-    double :geospatial_vertical_min = 500.000; // double
-    double :geospatial_vertical_max = 0.000; // double
+    double :geospatial_vertical_min = 500.000;
+    double :geospatial_vertical_max = 0.000;
     string :geospatial_vertical_units = "m";
     string :geospatial_vertical_resolution = "10 meters";
     string :creator_type = "institution";
@@ -167,10 +165,9 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
     string :license = "IATTC data are copyrighted and available publicly on condition of institution and researcher citation.";
     string :summary = "Implanted archival tag dataset showing the migration and diving patterns of an adult Bigeye tuna in the Eastern Tropical Pacific courtesy of Kurt Schaefer and Dan Fuller of the IATTC";
 
-
     // Animal Telemetry domain global attributes organized by category in Group structures
-    group: Meta_eTag {
-      
+
+    group: Meta_eTag {    
       group: animal {
         string :platform = "Thunnus obesus";						//REQUIRED
         string :taxonomic_serial_number = "172428";					//REQUIRED
@@ -252,7 +249,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
         string :geospatial_lat_end = -1.45f;						//REQUIRED
         string :end_details = "recovered by fishing fleet";				//REQUIRED
         string :end_type = "recaptured";						//REQUIRED
-        string :ldatetime_death = "2017-07-11T18:24:23+00:00";				//optional    
+        string :datetime_death = "2017-07-11T18:24:23+00:00";				//optional    
         }
         
       group: instrument {
@@ -281,7 +278,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
         integer :seconds_sampling_highfreq = 100;					//optional        
         }
 
-group: quality {
+      group: quality {
         string :found_problem = "no";							//REQUIRED
         string :person_qc = "Dan Fuller";						//REQUIRED
         string :problem_affecteddates = "2008-10-02 to 2008-11-30";			//recommended               
