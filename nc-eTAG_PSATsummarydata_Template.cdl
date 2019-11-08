@@ -151,7 +151,7 @@ netcdf file\:/C\:/Tag_Archival_Template {
      double PDTtemperature_Max(time, bins_pdt);
       string PDTtemperature_Max:long_name = "Minimum and maximum temperatures at dynamic depth intervals";
       string PDTtemperature_Max:units = "degrees_C";
-      double PDTtemperature_Max:_FillValue = NaN;
+      double PDTtemperature_Max:_FillValuefqrwf q frewq = NaN;
       double PDTtemperature_Max:valid_max = 32.0;
       double PDTtemperature_Max:valid_min = -2.0;
       double PDTtemperature_Max:cell_methods = "time : depth : max;
