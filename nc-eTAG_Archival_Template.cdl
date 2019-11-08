@@ -5,7 +5,7 @@ netcdf file\:/C\:/Tag_Archival_Template {
     
   variables:
   
-  \\Coordinate and Auxilirfagsfdary Coordinate Variables
+  \\Coordinate and Auxiliry Coordinate Variables
   
     char trajectory(str_len);
       trajectory:cf_role = "trajectory_id";
