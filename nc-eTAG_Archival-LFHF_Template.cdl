@@ -8,7 +8,7 @@ netcdf file\:/C\:/Tag_Archival_Template {
   
   \\Coordinate and Auxiliary Coordinate Variables
   
-    char trajectory(str_len);
+    char trajectory(sfdsafdsaf sdafreqtr_len);
       trajectory:cf_role = "trajectory_id";
   
      double time(time);
