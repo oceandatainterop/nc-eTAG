@@ -22,7 +22,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string location_freshness:long_name = "location_freshness";
       string location_freshness:comment = "time since last latitude and longitude observations";
       string location_freshness:units = "seconds";
-      double location_freshness:_FillValue = NaN;
+      double location_freshness:_FillValue = -999999;
       double location_freshness:valid_max = 86340.0;
       double location_freshness:valid_min = 0.0;
       string location_freshness:coverage_content_type = "auxiliaryInformation";
@@ -31,7 +31,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFlocation_freshness:long_name = "location_freshness for high frequency observation periods";
       string HFlocation_freshness:comment = "time since last latitude and longitude high frequency observations";
       string HFlocation_freshness:units = "seconds";
-      double HFlocation_freshness:_FillValue = NaN;
+      double HFlocation_freshness:_FillValue = -999999;
       double HFlocation_freshness:valid_max = 25340.0;
       double HFlocation_freshness:valid_min = 0.0;
       string HFlocation_freshness:coverage_content_type = "auxiliaryInformation";            
@@ -41,7 +41,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string longitude:standard_name = "longitude";
       string longitude:units = "degrees_east";      
       string longitude:axis = "X";
-      double longitude:_FillValue = NaN;
+      double longitude:_FillValue = -999999;
       double longitude:valid_max = -118.48636166666667;
       double longitude:valid_min = -127.43765333333333;
       string longitude:ancillary_variables = "longitude_uncertainty";
@@ -51,7 +51,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string longitude_uncertainty:long_name = "derived uncertainty around longitude estimate";
       string longitude_uncertainty:standard_name = "longitude standard_error";
       string longitude_uncertainty:units = "degrees";
-      double longitude_uncertainty:_FillValue = NaN;
+      double longitude_uncertainty:_FillValue = -999999;
       double longitude_uncertainty:valid_max = 0.05;
       double longitude_uncertainty:valid_min = 0.01;
       string longitude_uncertainty:coverage_content_type = "qualityInformation";    
@@ -61,7 +61,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string latitude:standard_name = "latitude";
       string latitude:units = "degrees_north";  
       string latitude:axis = "Y";      
-      double latitude:_FillValue = NaN;
+      double latitude:_FillValue = -999999;
       double latitude:valid_max = 30.639526666666665;
       double latitude:valid_min = 9.908965;
       string latitude:ancillary_variables = "latitude_uncertainty";
@@ -71,7 +71,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string latitude_uncertainty:long_name = "derived uncertainty around latitude estimate";
       string latitude_uncertainty:standard_name = "latitude standard_error";
       string latitude_uncertainty:units = "degrees";     
-      double latitude_uncertainty:_FillValue = NaN;      
+      double latitude_uncertainty:_FillValue = -999999;      
       double latitude_uncertainty:valid_max = 0.05;
       double latitude_uncertainty:valid_min = 0.01;
       string latitude_uncertainty:coverage_content_type = "qualityInformation";
@@ -82,7 +82,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string depth:units = "m";  
       string depth:axis = "Z"; 
       string depth:positive = "down";
-      double depth:_FillValue = NaN;
+      double depth:_FillValue = -999999;
       double depth:valid_max = 500.000;
       double depth:valid_min = 0.000;
       string depth:coverage_content_type = "coordinate";
@@ -99,7 +99,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFlongitude:standard_name = "longitude";
       string HFlongitude:units = "degrees_east";      
       string HFlongitude:axis = "X";
-      double HFlongitude:_FillValue = NaN;
+      double HFlongitude:_FillValue = -999999;
       double HFlongitude:valid_max = -118.48636166666667;
       double HFlongitude:valid_min = -127.43765333333333;
       string HFlongitude:ancillary_variables = "HFlongitude_uncertainty";
@@ -109,7 +109,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFlongitude_uncertainty:long_name = "derived uncertainty around longitude estimate for high frequency observation periods";
       string HFlongitude_uncertainty:standard_name = "longitude standard_error";
       string HFlongitude_uncertainty:units = "degrees";
-      double HFlongitude_uncertainty:_FillValue = NaN;
+      double HFlongitude_uncertainty:_FillValue = -999999;
       double HFlongitude_uncertainty:valid_max = 0.05;
       double HFlongitude_uncertainty:valid_min = 0.01;
       string HFlongitude_uncertainty:coverage_content_type = "qualityInformation";    
@@ -119,7 +119,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFlatitude:standard_name = "latitude";
       string HFlatitude:units = "degrees_north";  
       string HFlatitude:axis = "Y";      
-      double HFlatitude:_FillValue = NaN;
+      double HFlatitude:_FillValue = -999999;
       double HFlatitude:valid_max = 30.639526666666665;
       double HFlatitude:valid_min = 9.908965;
       string HFlatitude:ancillary_variables = "latitude_uncertainty";
@@ -129,7 +129,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFlatitude_uncertainty:long_name = "derived uncertainty around latitude estimate for high frequency observation periods";
       string HFlatitude_uncertainty:standard_name = "latitude standard_error";
       string HFlatitude_uncertainty:units = "degrees";     
-      double HFlatitude_uncertainty:_FillValue = NaN;      
+      double HFlatitude_uncertainty:_FillValue = -999999;      
       double HFlatitude_uncertainty:valid_max = 0.05;
       double HFlatitude_uncertainty:valid_min = 0.01;
       string HFlatitude_uncertainty:coverage_content_type = "qualityInformation"; 
@@ -140,7 +140,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFdepth:units = "m";  
       string HFdepth:axis = "Z"; 
       string HFdepth:positive = "down";
-      double HFdepth:_FillValue = NaN;
+      double HFdepth:_FillValue = -999999;
       double HFdepth:valid_max = 500.000;
       double HFdepth:valid_min = 0.000;
       string HFdepth:coverage_content_type = "coordinate"; 
@@ -151,7 +151,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string external_temperature:long_name = "sea water wemperature";
       string external_temperature:standard_name = "sea_water_temperature";
       string external_temperature:units = "degrees_C";
-      double external_temperature:_FillValue = NaN;
+      double external_temperature:_FillValue = -999999;
       double external_temperature:valid_max = 30.6457;
       double external_temperature:valid_min = 20.354621874999996;
       string external_temperature:coordinates = "time latitude longitude depth trajectory";
@@ -160,7 +160,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     double internal_temperature(time);
       string internal_temperature:long_name = "internal body temperature";
       string internal_temperature:units = "degrees_C";
-      double internal_temperature:_FillValue = NaN;
+      double internal_temperature:_FillValue = -999999;
       double internal_temperature:valid_max = 27.75;
       double internal_temperature:valid_min = 19.200000762939453;
       string internal_temperature:coordinates = "time latitude longitude depth trajectory";
@@ -169,7 +169,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     double illuminance(time);
       string illuminance:long_name = "light level";
       string illuminance:units = "lux";
-      double illuminance:_FillValue = NaN;
+      double illuminance:_FillValue = -999999;
       double illuminance:valid_max = 173.0; // double       
       double illuminance:valid_min = 33.0; // double
       string illuminance:coordinates = "time latitude longitude depth trajectory";
@@ -179,7 +179,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
       string HFexternal_temperature:long_name = "High frequency sea water temperature observations";
       string HFexternal_temperature:standard_name = "sea_water_temperature";
       string HFexternal_temperature:units = "degrees_C";
-      double HFexternal_temperature:_FillValue = NaN;
+      double HFexternal_temperature:_FillValue = -999999;
       double HFexternal_temperature:valid_max = 30.6457;
       double HFexternal_temperature:valid_min = 20.354621874999996;
       string HFexternal_temperature:coordinates = "HFtime HFlatitude HFlongitude HFdepth trajectory";
@@ -189,7 +189,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     double HFinternal_temperature(HFtime);
       string HFinternal_temperature:long_name = "High frequency internal body temperature";
       string HFinternal_temperature:units = "degrees_C";
-      double HFinternal_temperature:_FillValue = NaN;
+      double HFinternal_temperature:_FillValue = -999999;
       double HFinternal_temperature:valid_max = 27.75;
       double HFinternal_temperature:valid_min = 19.200000762939453;
       string HFinternal_temperature:coordinates = "HFtime HFlatitude HFlongitude HFdepth trajectory";
@@ -199,7 +199,7 @@ netcdf file\:/C\:/nc-eTAG_Archival-LFHF_Template {
     double HFilluminance(HFtime);
       string HFilluminance:long_name = "High frequency light level";
       string HFilluminance:units = "lux";
-      double HFilluminance:_FillValue = NaN;
+      double HFilluminance:_FillValue = -999999;
       double HFilluminance:valid_max = 173.0; // double       
       double HFilluminance:valid_min = 33.0; // double
       string HFilluminance:coordinates = "HFtime HFlatitude HFlongitude HFdepth trajectory";
