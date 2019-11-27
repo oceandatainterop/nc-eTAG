@@ -1,4 +1,4 @@
-netcdf file\:/C\:/nc-eTAG_Acoustic {
+netcdf file\:/C\:/nc-eTAG_Acoustic_Animal {
 
 // Draft nc-eTag template for Acoustic telemetry data (eg. time series of acoustic tag detections for an array of receiver stations for a given tagged fish)
 // Source: NASA-OIIP project
@@ -28,7 +28,7 @@ netcdf file\:/C\:/nc-eTAG_Acoustic {
       string longitude:standard_name = "longitude";
       string longitude:units = "degrees_east";      
       string longitude:axis = "X";
-      double longitude:_FillValue = NaN;
+      double longitude:_FillValue = -999999;
       double longitude:valid_max = -118.48636166666667;
       double longitude:valid_min = -127.43765333333333;
       string longitude:coverage_content_type = "coordinate";
@@ -38,7 +38,7 @@ netcdf file\:/C\:/nc-eTAG_Acoustic {
       string latitude:standard_name = "latitude";
       string latitude:units = "degrees_north";  
       string latitude:axis = "Y";      
-      double latitude:_FillValue = NaN;
+      double latitude:_FillValue = -999999;
       double latitude:valid_max = 30.639526666666665;
       double latitude:valid_min = 9.908965;
       string latitude:coverage_content_type = "coordinate";
@@ -49,7 +49,7 @@ netcdf file\:/C\:/nc-eTAG_Acoustic {
       string depth:units = "m";  
       string depth:axis = "Z"; 
       string depth:positive = "down";
-      double depth:_FillValue = NaN;
+      double depth:_FillValue = -999999;
       double depth:valid_max = 563.639526666666665;
       double depth:valid_min = 0.0000000000001;
       string depth:coverage_content_type = "coordinate";         
@@ -59,7 +59,7 @@ netcdf file\:/C\:/nc-eTAG_Acoustic {
       
     char tag_detection(animal, time, str_len);
       string tag_detection:long_name = "unique identifier of receiver station where tag detected ";
-      double tag_detection:_FillValue = NaN;
+      double tag_detection:_FillValue = -999999;
       string tag_detection:coordinates = "time latitude longitude depth animal";
       string temperature:coverage_content_type = " thematicClassification";  
       
