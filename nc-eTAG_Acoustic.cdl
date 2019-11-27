@@ -1,4 +1,4 @@
-netcdf file\:/C\:/nc-eTAG_Acoustic_Animal {
+netcdf file\:/C\:/nc-eTAG_Acoustic {
 
 // Draft nc-eTag template for Acoustic telemetry data (eg. series of fish acoustic tag detections for an array of receiver stations)
 // Source: NASA-OIIP project
