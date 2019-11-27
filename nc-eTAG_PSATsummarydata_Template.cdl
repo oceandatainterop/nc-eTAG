@@ -27,7 +27,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       string location_freshness:long_name = "location_freshness";
       string location_freshness:comment = "time since last latitude and longitude observations";
       string location_freshness:units = "seconds";
-      double location_freshness:_FillValue = NaN;
+      double location_freshness:_FillValue = -999999;
       double location_freshness:valid_max = 86340.0;
       double location_freshness:valid_min = 0.0;
       string location_freshness:coverage_content_type = "auxiliaryInformation";
@@ -37,7 +37,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       string longitude:standard_name = "longitude";
       string longitude:units = "degrees_east";      
       string longitude:axis = "X";
-      double longitude:_FillValue = NaN;
+      double longitude:_FillValue = -999999;
       double longitude:valid_max = -118.48636166666667;
       double longitude:valid_min = -127.43765333333333;
       string longitude:ancillary_variables = "longitude_uncertainty";
@@ -47,7 +47,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       string longitude_uncertainty:long_name = "derived uncertainty around longitude estimate";
       string longitude_uncertainty:standard_name = "longitude standard_error";
       string longitude_uncertainty:units = "degrees";
-      double longitude_uncertainty:_FillValue = NaN;
+      double longitude_uncertainty:_FillValue = -999999;
       double longitude_uncertainty:valid_max = 0.05;
       double longitude_uncertainty:valid_min = 0.01;
       string longitude_uncertainty:coverage_content_type = "qualityInformation";    
@@ -57,7 +57,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       string latitude:standard_name = "latitude";
       string latitude:units = "degrees_north";  
       string latitude:axis = "Y";      
-      double latitude:_FillValue = NaN;
+      double latitude:_FillValue = -999999;
       double latitude:valid_max = 30.639526666666665;
       double latitude:valid_min = 9.908965;
       string latitude:ancillary_variables = "latitude_uncertainty";
@@ -67,7 +67,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       string latitude_uncertainty:long_name = "derived uncertainty around latitude estimate";
       string latitude_uncertainty:standard_name = "latitude standard_error";
       string latitude_uncertainty:units = "degrees";     
-      double latitude_uncertainty:_FillValue = NaN;      
+      double latitude_uncertainty:_FillValue = -999999;      
       double latitude_uncertainty:valid_max = 0.05;
       double latitude_uncertainty:valid_min = 0.01;
       string latitude_uncertainty:coverage_content_type = "qualityInformation";
@@ -117,7 +117,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
     double depth_frequency(time, bins_freq);
       string depth_frequency:long_name = "Percentage time spent at a given pre-programmed depth interval";
       string depth_frequency:units = "%";
-      double depth_frequency:_FillValue = NaN;
+      double depth_frequency:_FillValue = -999999;
       double depth_frequency:valid_max = 100.0;
       double depth_frequency:valid_min = 0.0;
       string depth_frequency:cell_methods = "time : depth : count";
@@ -127,7 +127,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
     double temperature_frequency(time, bins_freq);
       string temperature_frequency:long_name = "Percentage time spent at a given pre-programmed temperature interval";
       string temperature_frequency:units = "%";
-      double temperature_frequency:_FillValue = NaN;
+      double temperature_frequency:_FillValue = -999999;
       double temperature_frequency:valid_max = 100.0;
       double temperature_frequency:valid_min = 0.0;
       string temperature_frequency:cell_methods = "time : temperature : count";
@@ -137,7 +137,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
     double PDTtemperature_Min(time, bins_pdt);
       string PDTtemperature_Min:long_name = "Minimum temperatures at dynamic depth intervals";
       string PDTtemperature_Min:units = "degrees_C";
-      double PDTtemperature_Min:_FillValue = NaN;
+      double PDTtemperature_Min:_FillValue = -999999;
       double PDTtemperature_Min:valid_max = 32.0;
       double PDTtemperature_Min:valid_min = -2.0;
       string PDTtemperature_Min:cell_methods = "time : depth : min";
@@ -148,7 +148,7 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
     double PDTtemperature_Max(time, bins_pdt);
       string PDTtemperature_Max:long_name = "Maximum temperatures at dynamic depth intervals";
       string PDTtemperature_Max:units = "degrees_C";
-      double PDTtemperature_Max:_FillValue = NaN;
+      double PDTtemperature_Max:_FillValue = -999999;
       double PDTtemperature_Max:valid_max = 32.0;
       double PDTtemperature_Max:valid_min = -2.0;
       string PDTtemperature_Max:cell_methods = "time : depth : max";
