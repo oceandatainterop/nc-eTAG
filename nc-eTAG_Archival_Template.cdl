@@ -169,6 +169,7 @@ netcdf file\:/C\:/nc-eTAG_Archival_Template {
 
     group: Meta_eTag {    
       group: animal {
+        string :platformUUID = "123e4567-e89b-12d3-a456-426655440000";		//REQUIRED
         string :platform = "Thunnus obesus";						//REQUIRED
         string :taxonomic_serial_number = "172428";					//REQUIRED
         string :length_type_capture = "Straight fork length";				//REQUIRED
