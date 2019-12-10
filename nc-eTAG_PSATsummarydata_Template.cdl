@@ -72,6 +72,15 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
       double latitude_uncertainty:valid_min = 0.01;
       string latitude_uncertainty:coverage_content_type = "qualityInformation";
 
+    char argosLC_qc(time);
+      string argosLC_qc:long_name = "ARGOS location class geolocation quality code";
+      string argosLC_qc:standard_name = "quality_flag";
+      string argosLC_qc:_FillValue = "9";
+      string argosLC_qc:flag_values = G, 3, 2, 1, 0, A, B, Z;
+      string argosLC_qc:flag_meanings = "<100 <250m 250-500m 500-1500m >1500m unestimated3messages unestimated2messages invalidlocations";
+      string argosLC_qc:comment = "Argos location error/quality codes from  http://www.argos-system.org/manual/3-location/34_location_classes.htm"
+      string argosLC_qc:coverage_content_type = "qualityInformation";
+
     double depth (bins_freq);
       string depth:long_name = "depth interval lower bound";
       string depth:standard_name = "depth";
@@ -218,7 +227,8 @@ netcdf file\:/C\:/nc-eTAG_PSATsummarydata_Template {
 
     group: Meta_eTag {      
       group: animal {
-       string :platform = "Thunnus obesus";						//REQUIRED
+        string :platformUUID = "123e4567-e89b-12d3-a456-426655440000";		//REQUIRED
+        string :platform = "Thunnus obesus";						//REQUIRED
         string :taxonomic_serial_number = "172428";					//REQUIRED
         string :length_type_capture = "Straight fork length";				//REQUIRED
         string :length_method_capture = "measured caliper";				//REQUIRED
