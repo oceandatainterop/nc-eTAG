@@ -7,4 +7,4 @@ data implementations of these. It includes format specification documentation an
 of electronic tagging data representative of products from a range of instrument manufacturers.  The template specifications provide
 a roadmap for technical implementation of standards compliant, archive quality data files by data providers and tag manufacturers alike.
 
-In future netCDF CDL templates for acoustic telemetry datasets may developed and hosted here as well.  Any such materials currently available should be considered preliminary drafts.
+In future netCDF CDL templates for acoustic telemetry datasets may be developed and hosted here as well.  Any such materials currently available should be considered preliminary drafts.
